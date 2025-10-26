@@ -36,21 +36,21 @@ onMounted(() => {
     <div class="text-lg font-semibold">Invoices</div>
 
     <div class="grid md:grid-cols-4 gap-2">
-      <select v-model="filters.customer_id" class="border rounded px-2 py-1">
+      <select v-model="filters.customer_id" class="border rounded px-2 py-1 text-black">
         <option value="">All Customers</option>
         <option v-for="c in customers" :key="c.id" :value="c.id">{{ c.name }}</option>
       </select>
-      <input type="date" v-model="filters.date_from" class="border rounded px-2 py-1" />
-      <input type="date" v-model="filters.date_to" class="border rounded px-2 py-1" />
+      <input type="date" v-model="filters.date_from" class="border rounded px-2 py-1 text-black" />
+      <input type="date" v-model="filters.date_to" class="border rounded px-2 py-1 text-black" />
       <input
         v-model="filters.search"
         placeholder="Search by customer"
-        class="border rounded px-2 py-1"
+        class="border rounded px-2 py-1 text-black"
       />
     </div>
-    <div><button class="px-3 py-1 border rounded" @click="load(1)">Apply</button></div>
+    <div><button class="px-3 py-1 bg-indigo-600 text-white rounded" @click="load(1)">Apply</button></div>
 
-    <div class="overflow-x-auto border rounded">
+    <div class="overflow-x-auto border rounded flex bg-white text-black">
       <table class="min-w-full text-sm">
         <thead class="bg-gray-50">
           <tr>

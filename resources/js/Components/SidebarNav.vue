@@ -15,8 +15,8 @@ const is = (name) => route().current(name);
     <nav class="p-2 space-y-1 text-sm">
       <Link
         :href="route('dashboard')"
-        class="block px-3 py-2 rounded hover:bg-gray-100"
-        :class="is('dashboard') ? 'bg-gray-100 font-medium' : ''"
+        class="block px-3 py-2 rounded hover:bg-white hover:text-black hover:font-semibold"
+        :class="is('dashboard') ? 'bg-white text-black font-semibold' : ''"
       >
         🏠 Dashboard
       </Link>

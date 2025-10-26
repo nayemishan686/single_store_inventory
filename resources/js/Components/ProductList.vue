@@ -78,7 +78,7 @@ onMounted(() => load());
   <div class="space-y-3">
     <div class="flex items-center justify-between">
       <div class="text-lg font-semibold">
-        Products <span class="text-sm text-gray-500">({{ meta?.total || 0 }})</span>
+        Products 
       </div>
       <div class="flex gap-2">
         <input
@@ -87,7 +87,7 @@ onMounted(() => load());
           placeholder="Search name/sku"
           class="border rounded px-3 py-1"
         />
-        <select v-model="perPage" @change="load(1)" class="border rounded px-2 py-1">
+        <select v-model="perPage" @change="load(1)" class="border rounded px-2 py-1 text-black">
           <option :value="10">10</option>
           <option :value="20">20</option>
           <option :value="50">50</option>
@@ -100,7 +100,7 @@ onMounted(() => load());
     </div>
 
     <div class="overflow-x-auto border rounded">
-      <table class="min-w-full text-sm">
+      <table class="min-w-full text-sm bg-white text-black">
         <thead class="bg-gray-50">
           <tr>
             <th class="p-2 text-left">Name</th>
@@ -163,32 +163,32 @@ onMounted(() => load());
       class="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
     >
       <div class="bg-white rounded-xl p-6 w-full max-w-lg">
-        <h3 class="text-lg font-semibold mb-3">
+        <h3 class="text-lg text-black font-semibold mb-3">
           {{ editing ? "Edit Product" : "Add Product" }}
         </h3>
         <div class="grid gap-3">
           <div>
-            <label class="block text-sm mb-1">Name</label>
-            <input v-model="form.name" class="border rounded w-full px-3 py-2" />
+            <label class="block text-sm text-black mb-1">Name</label>
+            <input v-model="form.name" class="border rounded w-full px-3 py-2 text-black" />
             <p class="text-xs text-rose-600" v-if="formErrors.name">
               {{ formErrors.name[0] }}
             </p>
           </div>
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-sm mb-1">SKU</label>
-              <input v-model="form.sku" class="border rounded w-full px-3 py-2" />
+              <label class="block text-sm text-black mb-1">SKU</label>
+              <input v-model="form.sku" class="border rounded w-full px-3 py-2 text-black" />
               <p class="text-xs text-rose-600" v-if="formErrors.sku">
                 {{ formErrors.sku[0] }}
               </p>
             </div>
             <div>
-              <label class="block text-sm mb-1">Price</label>
+              <label class="block text-sm text-black mb-1">Price</label>
               <input
                 type="number"
                 step="0.01"
                 v-model.number="form.price"
-                class="border rounded w-full px-3 py-2"
+                class="border rounded w-full px-3 py-2 text-black"
               />
               <p class="text-xs text-rose-600" v-if="formErrors.price">
                 {{ formErrors.price[0] }}
@@ -197,24 +197,24 @@ onMounted(() => load());
           </div>
           <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="block text-sm mb-1">Quantity</label>
+              <label class="block text-sm text-black mb-1 text-black">Quantity</label>
               <input
                 type="number"
                 v-model.number="form.quantity"
-                class="border rounded w-full px-3 py-2"
+                class="border rounded w-full px-3 py-2 text-black"
               />
               <p class="text-xs text-rose-600" v-if="formErrors.quantity">
                 {{ formErrors.quantity[0] }}
               </p>
             </div>
             <div>
-              <label class="block text-sm mb-1">Description</label>
-              <input v-model="form.description" class="border rounded w-full px-3 py-2" />
+              <label class="block text-sm text-black mb-1">Description</label>
+              <input v-model="form.description" class="border rounded w-full px-3 py-2 text-black" />
             </div>
           </div>
         </div>
         <div class="flex justify-end gap-2 mt-5">
-          <button class="px-3 py-1 border rounded" @click="showForm = false">
+          <button class="px-3 py-1 border rounded bg-black text-white" @click="showForm = false">
             Cancel
           </button>
           <button class="px-3 py-1 bg-indigo-600 text-white rounded" @click="save">

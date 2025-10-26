@@ -83,11 +83,11 @@ onMounted(() => {
 
 <template>
   <div class="space-y-4">
-    <div class="text-lg font-semibold">Create Invoice</div>
+    <div class="text-lg text-white font-semibold">Create Invoice</div>
 
     <div class="grid md:grid-cols-2 gap-6">
       <div class="space-y-2">
-        <label class="text-sm">Select Customer</label>
+        <label class="text-sm text-white">Select Customer</label>
         <div class="flex gap-2">
           <input
             v-model="searchCustomer"
@@ -107,8 +107,8 @@ onMounted(() => {
           >
             <input type="radio" :value="c.id" v-model="customer_id" />
             <div>
-              <div class="font-medium">{{ c.name }}</div>
-              <div class="text-xs text-gray-500">{{ c.email }}</div>
+              <div class="font-medium text-white">{{ c.name }}</div>
+              <div class="text-xs text-gray-300">{{ c.email }}</div>
             </div>
           </div>
           <div v-if="customers.length === 0" class="p-3 text-sm">No customers</div>
@@ -139,9 +139,9 @@ onMounted(() => {
           >
             <div>
               <div class="font-medium">
-                {{ p.name }} <span class="text-xs text-gray-500">({{ p.sku }})</span>
+                {{ p.name }} <span class="text-xs text-gray-300">({{ p.sku }})</span>
               </div>
-              <div class="text-xs text-gray-500">
+              <div class="text-xs text-gray-300">
                 ৳ {{ Number(p.price).toFixed(2) }} • Qty: {{ p.quantity }}
               </div>
             </div>
@@ -153,8 +153,8 @@ onMounted(() => {
     </div>
 
     <div class="mt-4 border rounded">
-      <table class="min-w-full text-sm">
-        <thead class="bg-gray-50">
+      <table class="min-w-full text-sm text-white">
+        <thead class="bg-gray-50 text-black">
           <tr>
             <th class="p-2 text-left">Product</th>
             <th class="p-2 text-right">Price</th>
@@ -166,14 +166,14 @@ onMounted(() => {
         <tbody>
           <tr v-for="(i, idx) in items" :key="i.product_id" class="border-t">
             <td class="p-2">{{ i.name }}</td>
-            <td class="p-2 text-right">{{ Number(i.price).toFixed(2) }}</td>
+            <td class="p-2 text-right ">{{ Number(i.price).toFixed(2) }}</td>
             <td class="p-2 text-right">
               <input
                 type="number"
                 min="1"
                 v-model.number="i.quantity"
                 @change="updateQty(i)"
-                class="border rounded px-2 py-1 w-24 text-right"
+                class="border rounded px-2 py-1 w-24 text-right text-black"
               />
             </td>
             <td class="p-2 text-right">{{ i.subtotal }}</td>
