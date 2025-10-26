@@ -37,4 +37,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('invoices', [InvoiceController::class, 'index']);
     Route::get('invoices/{invoice}', [InvoiceController::class, 'show']);
     Route::post('invoices', [InvoiceController::class, 'store']);
+    Route::get('/invoices/{invoice}/pdf', [InvoiceController::class, 'pdf']);
 });

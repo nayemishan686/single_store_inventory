@@ -90,11 +90,11 @@ onMounted(fetchOverview);
     <div class="grid sm:grid-cols-3 gap-4">
       <div class="p-5 rounded-xl border bg-white">
         <div class="text-sm text-black">Today’s Sales</div>
-        <div class="text-xl text-black font-semibold mt-1">৳{{ sales.today.toFixed(2) }}</div>
+        <div class="text-xl text-black font-semibold mt-1">BDT {{ sales.today.toFixed(2) }}</div>
       </div>
       <div class="p-5 rounded-xl border bg-white">
         <div class="text-sm text-black">This Month</div>
-        <div class="text-xl text-black font-semibold mt-1">৳{{ sales.this_month.toFixed(2) }}</div>
+        <div class="text-xl text-black font-semibold mt-1">BDT {{ sales.this_month.toFixed(2) }}</div>
       </div>
       <div class="p-5 rounded-xl border bg-white">
         <div class="text-sm text-black">Low Stock (&lt;5)</div>

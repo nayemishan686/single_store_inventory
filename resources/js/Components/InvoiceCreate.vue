@@ -93,7 +93,7 @@ onMounted(() => {
             v-model="searchCustomer"
             @keyup.enter="loadCustomers(searchCustomer)"
             placeholder="Search..."
-            class="border rounded px-3 py-2 w-full"
+            class="border border-white/10 bg-white/10 text-slate-100 rounded px-2 py-2 w-full"
           />
           <button class="px-3 py-2 border rounded" @click="loadCustomers(searchCustomer)">
             Find
@@ -103,7 +103,7 @@ onMounted(() => {
           <div
             v-for="c in customers"
             :key="c.id"
-            class="px-3 py-2 border-b flex items-center gap-2"
+            class="px-3 py-2 border-b  flex items-center gap-2"
           >
             <input type="radio" :value="c.id" v-model="customer_id" />
             <div>
@@ -125,7 +125,7 @@ onMounted(() => {
             v-model="searchProduct"
             @keyup.enter="loadProducts(searchProduct)"
             placeholder="Search..."
-            class="border rounded px-3 py-2 w-full"
+            class="border border-white/10 bg-white/10 text-slate-100 rounded px-2 py-2 w-full"
           />
           <button class="px-3 py-2 border rounded" @click="loadProducts(searchProduct)">
             Find
@@ -142,7 +142,7 @@ onMounted(() => {
                 {{ p.name }} <span class="text-xs text-gray-300">({{ p.sku }})</span>
               </div>
               <div class="text-xs text-gray-300">
-                ৳ {{ Number(p.price).toFixed(2) }} • Qty: {{ p.quantity }}
+                BDT {{ Number(p.price).toFixed(2) }} • Qty: {{ p.quantity }}
               </div>
             </div>
             <button class="px-2 py-1 border rounded" @click="addProduct(p)">Add</button>
@@ -191,7 +191,7 @@ onMounted(() => {
     </div>
 
     <div class="flex justify-end items-center gap-4">
-      <div class="text-lg font-semibold">Total: ৳ {{ total }}</div>
+      <div class="text-lg font-semibold">Total: BDT {{ total }}</div>
       <button
         class="px-4 py-2 bg-indigo-600 text-white rounded"
         :disabled="loading || !customer_id || items.length === 0"

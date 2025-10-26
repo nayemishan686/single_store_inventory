@@ -27,12 +27,6 @@ class InvoiceController extends Controller
         return response()->json($q->paginate($r->integer('per_page', 10)));
     }
 
-    // Show single invoice (with items + customer)
-    public function show(Invoice $invoice)
-    {
-        return response()->json($invoice->load('items', 'customer'));
-    }
-
     // Create invoice (atomic, deduct stock)
     public function store(InvoiceStoreRequest $req)
     {
@@ -82,5 +76,21 @@ class InvoiceController extends Controller
 
             return response()->json($invoice->load('items', 'customer'), 201);
         });
+    }
+
+
+    // Show single invoice (with items + customer)
+    public function show(\App\Models\Invoice $invoice)
+    {
+        $invoice->load(['customer', 'items.product']);
+        return response()->json($invoice);
+    }
+
+
+    public function pdf(\App\Models\Invoice $invoice)
+    {
+        $invoice->load(['customer', 'items.product']);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.invoice', ['invoice' => $invoice]);
+        return $pdf->download("invoice-{$invoice->id}.pdf");
     }
 }
