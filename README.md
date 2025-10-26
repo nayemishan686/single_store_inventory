@@ -21,3 +21,28 @@ from git bash or terminal:
 ```bash
 git clone <your-public-repo-url>
 cd single-inventory
+
+
+cp .env.example .env
+# Update DB credentials (DB_DATABASE, DB_USERNAME, DB_PASSWORD)
+# Everything else can remain same as .env.example
+
+composer install
+php artisan key:generate
+
+php artisan migrate --seed
+# Demo user:
+# Email: admin@example.com
+# Password: password
+# In login panel there’s a button named "Use Demo User" — click it to autofill credentials.
+
+npm install
+npm run dev
+php artisan serve
+
+# Visit the app:
+# http://127.0.0.1:8000
+
+# If you face any problem, please mail or call me:
+# Email: nayemishan377@gmail.com
+# Phone: 01637654490
