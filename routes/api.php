@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\InvoiceController;
 use App\Http\Controllers\Api\InvoiceListController;
+use App\Http\Controllers\Api\DashboardController;
 
 
 /*
@@ -28,6 +29,7 @@ use App\Http\Controllers\Api\InvoiceListController;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/ping', fn() => ['message' => 'Sanctum working!']);
+    Route::get('/dashboard/overview', [DashboardController::class, 'overview']);
 
     Route::apiResource('products', ProductController::class);
     Route::apiResource('customers', CustomerController::class);

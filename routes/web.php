@@ -16,18 +16,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', function () {
+    return redirect()->route(auth()->check() ? 'dashboard' : 'login');
+})->name('home');
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -35,4 +31,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', fn() => Inertia::render('Dashboard', ['section' => 'home']))->name('dashboard');
+
+    Route::get('/products', fn() => Inertia::render('Dashboard', ['section' => 'products']))->name('products.index');
+    Route::get('/customers', fn() => Inertia::render('Dashboard', ['section' => 'customers']))->name('customers.index');
+    Route::get('/invoices', fn() => Inertia::render('Dashboard', ['section' => 'invoices']))->name('invoices.index');
+    Route::get('/invoice-create', fn() => Inertia::render('Dashboard', ['section' => 'create']))->name('invoices.create');
+});
+
+require __DIR__ . '/auth.php';
