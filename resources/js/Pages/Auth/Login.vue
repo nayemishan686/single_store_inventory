@@ -153,7 +153,7 @@ function fillDemo() {
               class="px-3 py-2 rounded-lg border border-white/10 text-slate-200 hover:bg-white/10"
               title="Fill demo credentials"
             >
-              Use Demo Data
+              Use Demo User
             </button>
 
             <button

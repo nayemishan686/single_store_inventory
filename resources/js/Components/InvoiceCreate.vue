@@ -9,7 +9,7 @@ const products = ref([]);
 const customer_id = ref("");
 const searchCustomer = ref("");
 const searchProduct = ref("");
-const items = ref([]); // { product_id, name, price, quantity, subtotal }
+const items = ref([]); 
 const loading = ref(false);
 const formErrors = ref({});
 

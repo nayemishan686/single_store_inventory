@@ -17,7 +17,7 @@ const loading = ref(false);
 // Details modal state
 const showView = ref(false);
 const viewLoading = ref(false);
-const invoice = ref(null); // { id, customer, created_at, total, items: [{product, quantity, price, subtotal}] }
+const invoice = ref(null); 
 
 async function load(page = 1) {
   loading.value = true;
@@ -36,9 +36,9 @@ async function viewDetails(id) {
   viewLoading.value = true;
   try {
     const { data } = await api.get(`/api/invoices/${id}`);
-    invoice.value = data; // expect { id, customer, created_at, total, items:[{ product: { name, sku }, price, quantity, subtotal }] }
+    invoice.value = data; 
   } catch (e) {
-    // graceful fallback
+    
     invoice.value = null;
   } finally {
     viewLoading.value = false;
