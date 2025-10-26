@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::get('/user', fn() => auth()->user());      // auth check
+//     Route::get('/ping', fn() => ['ok' => true]);       // health
+//     // এখানেই পরে products/customers/invoices CRUD বসবে (JSON return)
+// });
+
+
+Route::middleware('auth:sanctum')->get('/ping', function (Illuminate\Http\Request $request) {
+    if ($request->expectsJson()) {
+        return response()->json(['message' => 'Sanctum working!']);
+    }
+    return response()->json(['message' => 'Sanctum working!']);
 });
