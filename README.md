@@ -9,7 +9,7 @@ This system helps manage products, customers, stock tracking, and invoice genera
 ## Requirements
 - PHP 8.2+
 - Composer
-- Node.js 18+
+- Node.js 20+
 - MySQL 8+ (or MariaDB)
 
 ---
