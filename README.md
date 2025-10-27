@@ -19,7 +19,7 @@ This system helps manage products, customers, stock tracking, and invoice genera
 from git bash or terminal:
 
 ```bash
-git clone <your-public-repo-url>
+git clone https://github.com/nayemishan686/single_store_inventory.git
 cd single-inventory
 
 
